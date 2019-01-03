@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var objectID = mongoose.Schema.Types.objectID;
+var objectId = mongoose.Schema.Types.ObjectId;
 
 var saleItems = new Schema({
     products:[{type: objectId, ref:'Product'}],
