@@ -1,7 +1,9 @@
 var express = require('express');
+
 var productCtrl = require('./controller/productController');
 var cartCtrl = require('./controller/cartController');
 var saleItemCtrl = require('./controller/saleController');
+var wishListCtrl = require('./controller/wishListController');
 
 var router = express.Router();
 
@@ -11,8 +13,6 @@ var db = mongoose.connect('mongodb://localhost/swag-shop', {useNewUrlParser: tru
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: false}));
-
-var Wishlist = require('./model/wishlist');
 
 // Products
 router.route('/product').post(productCtrl.addProduct);
@@ -31,5 +31,8 @@ router.route('/sale-items/product/add').put(saleItemCtrl.addProductToSaleItems);
 router.route('/sale-items/product/remove').delete(saleItemCtrl.removeItemFromSaleItems);
 router.route('/sale-items/related-items/add').put(saleItemCtrl.addRelatedProductToSaleItems);
 router.route('/sale-items/related-items/remove').delete(saleItemCtrl.removeItemFromSaleItems);
+
+// Wish list
+router.route('/wishlist').post(wishListCtrl.createWishList);
 
 module.exports = router
