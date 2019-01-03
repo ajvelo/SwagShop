@@ -1,4 +1,6 @@
 var express = require('express');
+var productCtrl = require('./controller/productController');
+
 var router = express.Router();
 
 var bodyParser = require('body-parser');
@@ -12,36 +14,7 @@ var Product = require('./model/product');
 var Wishlist = require('./model/wishlist');
 
 // MARK: Add product
-router.post('/product', function(req, res) {
-    var product = new Product();
-    product.title = req.body.title;
-    product.price = req.body.price;
-    product.save(function(err, savedProduct) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not save product"
-            });
-        } else {
-            res.status(200).send({
-                savedProduct
-            });
-        }
-    });
-});
-
-// MARK: Fetch products
-router.get('/product', function(req, res) {
-    Product.find({}, function(err, products) {
-        if (err) {
-            res.status(500).send({
-                error: "Product could not be found"
-            });
-        } else {
-            res.status(200).send({
-                products
-            });
-        }
-    });
-});
+router.route('/product').post(productCtrl.addProduct);
+router.route('/product').get(productCtrl.getProducts);
 
 module.exports = router
