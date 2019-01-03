@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
-var schema = mongoose.Schema;
+var Schema = mongoose.Schema;
 var objectId = mongoose.Schema.Types.ObjectId;
 
-var wishlist = new schema({
+var wishlist = new Schema({
     title: { type: String, default: "Cool Wish List" },
     products: [{type: objectId, ref: "Product"}]
 
