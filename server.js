@@ -28,6 +28,21 @@ app.post('/product', function(req, res) {
     });
 });
 
+// MARK: Fetch products
+app.get('/product', function(req, res) {
+    Product.find({}, function(err, products) {
+        if (err) {
+            res.status(500).send({
+                error: "Product could not be found"
+            });
+        } else {
+            res.status(200).send({
+                products
+            });
+        }
+    });
+});
+
 app.listen(3000, function() {
     console.log('Running on port 3000..');
 });
