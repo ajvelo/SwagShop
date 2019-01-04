@@ -16,5 +16,13 @@ module.exports = {
                 });
             }
         });
+    },
+
+    getWishList : function(req, res) {
+        WishList.find({}, function(err, wishLists) {
+            res.status(200).send({
+                wishLists
+            });
+        });
     }
 }
