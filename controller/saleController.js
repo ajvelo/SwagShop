@@ -86,7 +86,7 @@ module.exports = {
                     error: "Could not add related item to sale items"
                 })
             } else {
-                SaleItems.update({_id:req.body.saleItemsId}, {$addToSet:{relatedItems:productId}},
+                SaleItems.update({_id:req.body.saleItemsId}, {$addToSet:{relatedItems:product._id}},
                     function(err, saleItems) {
                         if (err) {
                             res.status(500).send({
@@ -110,7 +110,7 @@ module.exports = {
                     error: "Could not remove related item to sale items"
                 })
             } else {
-                SaleItems.update({_id:req.body.saleItemsId}, {$pull:{relatedItems:productId}},
+                SaleItems.update({_id:req.body.saleItemsId}, {$pull:{relatedItems:product._id}},
                     function(err, saleItems) {
                         if (err) {
                             res.status(500).send({
