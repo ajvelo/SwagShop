@@ -30,10 +30,11 @@ router.route('/sale-items').get(saleItemCtrl.getSaleItems);
 router.route('/sale-items/product/add').put(saleItemCtrl.addProductToSaleItems);
 router.route('/sale-items/product/remove').delete(saleItemCtrl.removeItemFromSaleItems);
 router.route('/sale-items/related-items/add').put(saleItemCtrl.addRelatedProductToSaleItems);
-router.route('/sale-items/related-items/remove').delete(saleItemCtrl.removeItemFromSaleItems);
+router.route('/sale-items/related-items/remove').delete(saleItemCtrl.removeRelatedProductFromSaleItems);
 
 // Wish list
 router.route('/wishlist').post(wishListCtrl.createWishList);
 router.route('/wishlist').get(wishListCtrl.getWishList);
 router.route('/wishlist/product/add').put(wishListCtrl.addProductToWishList);
+
 module.exports = router
