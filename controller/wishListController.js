@@ -50,7 +50,6 @@ module.exports = {
                                 message: "Successfully added to wish list",
                                 wishList
                             });
-                            console.log(wishList);
                         }
                     });
             }
