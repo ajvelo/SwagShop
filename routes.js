@@ -34,6 +34,6 @@ router.route('/sale-items/related-items/remove').delete(saleItemCtrl.removeItemF
 
 // Wish list
 router.route('/wishlist').post(wishListCtrl.createWishList);
-router.route('/wishList').get(wishListCtrl.getWishList);
-
+router.route('/wishlist').get(wishListCtrl.getWishList);
+router.route('/wishlist/product/add').put(wishListCtrl.addProductToWishList);
 module.exports = router
