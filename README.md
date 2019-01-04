@@ -1,5 +1,5 @@
 # SwagShop-Api
-Contains all the APIs for the swag shop. Built using Node and Mongo.
+Contains all the APIs for the swag shop. Built using NodeJS and MongoDB.
 
 ## List of APIs
 
@@ -24,7 +24,7 @@ Contains all the APIs for the swag shop. Built using Node and Mongo.
 ('/sale-items/product/add').put(addProductToSaleItems);
 ('/sale-items/product/remove').delete(removeItemFromSaleItems);
 ('/sale-items/related-items/add').put(addRelatedProductToSaleItems);
-('/sale-items/related-items/remove').delete(removeItemFromSaleItems);
+('/sale-items/related-items/remove').delete(removeRelatedProductFromSaleItems);
 ```
 
 ### Wish list
