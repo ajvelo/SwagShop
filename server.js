@@ -7,6 +7,6 @@ var routes = require("./routes");
 app.use(cors())
 app.use("/", routes);
 
-app.listen(3000, function() {
+app.listen(3001, function() {
     console.log('Running on port 3000..');
 });
