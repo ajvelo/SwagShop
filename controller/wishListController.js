@@ -54,5 +54,29 @@ module.exports = {
                     });
             }
         });
+    },
+
+    removeProductFromWishList : function(req, res) {
+        Product.findOne({_id: req.body.productId}, function(err, product) {
+            if (err) {
+                res.status(500).send({
+                    error: "Could not find product to remove from wish list"
+                });
+            } else {
+                WishList.update({_id: req.body.wishListId}, {$pull: {products:product._id}},
+                    function(err,wishList) {
+                        if (err) {
+                            res.status(500).send({
+                                error: "Could not update wishlist to remove product"
+                            });
+                        } else {
+                            res.status(200).send({
+                                message: "Product successfully removed from sales item",
+                                wishList
+                            });
+                        }
+                    });
+            }
+        });
     }
 }
