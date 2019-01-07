@@ -8,5 +8,5 @@ app.use(cors())
 app.use("/", routes);
 
 app.listen(3001, function() {
-    console.log('Running on port 3000..');
+    console.log('Running on port 3001..');
 });
